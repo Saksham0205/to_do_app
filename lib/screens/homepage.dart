@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../model/todo.dart';
 import '../widgets/todo_item.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -24,36 +23,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.menu, size: 35, color: Colors.white),
+        leading: const Icon(Icons.menu, size: 35, color: Colors.white),
         actions: [
           Padding(
-            padding: EdgeInsets.all(5), // Adjust the value as needed
+            padding: const EdgeInsets.all(5), // Adjust the value as needed
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40),
               child: Image.asset("assets/Saksham.jpg"),
             ),
           ),
         ],
-        title: Text(
+        title: const Text(
           "To-Do",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color(0xff121212),
+        backgroundColor: const Color(0xff121212),
         centerTitle: true,
       ),
-      backgroundColor: Color(0xff121212),
+      backgroundColor: const Color(0xff121212),
       body: Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(right: 10, left: 10, top: 10),
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.only(right: 10, left: 10, top: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
             child: TextField(
               onChanged: runFilter,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.all(16),
                 prefixIcon: Icon(
                   Icons.search,
@@ -70,24 +69,22 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 80, bottom: 20),
+            margin: const EdgeInsets.only(top: 80, bottom: 20),
             child: ListView(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    child: Text(
-                      "All tasks",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                          fontWeight: FontWeight.w400),
-                    ),
+                  child: Text(
+                    "All tasks",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
                 for (ToDo todo in foundToDo.reversed)
                   Padding(
-                    padding: EdgeInsets.only(left: 10, right: 10, top: 2),
+                    padding: const EdgeInsets.only(left: 10, right: 10, top: 2),
                     child: ToDoItem(
                       todo: todo,
                       onToDoChanged: handleToDoChange,
@@ -100,13 +97,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Expanded(
                         child: Container(
-                          margin:  EdgeInsets.only(
+                          margin:  const EdgeInsets.only(
                               bottom: 20, right: 20, left: 20),
                           padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Colors.grey,
                                     offset: Offset(0, 0),
@@ -116,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(10)),
                           child: TextField(
                             controller: todoController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               contentPadding: EdgeInsets.all(10),
                               hintText: "Add a new task",
                               border: InputBorder.none,
@@ -125,21 +122,21 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 10, 20),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 10, 20),
                         child: ElevatedButton(
-                          child: Text(
-                            "+",
-                            style: TextStyle(
-                                fontSize: 40, color: Colors.white),
-                          ),
                           onPressed: () {
                             addToDoItem(todoController.text);
                           },
                           style: ElevatedButton.styleFrom(
-                            shape: CircleBorder(),
-                            padding: EdgeInsets.all(20),
+                            shape: const CircleBorder(),
+                            padding: const EdgeInsets.all(20),
                             backgroundColor: Colors.green,
                             elevation: 10,
+                          ),
+                          child: const Text(
+                            "+",
+                            style: TextStyle(
+                                fontSize: 40, color: Colors.white),
                           ),
                         ),
                       ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../model/todo.dart';
@@ -8,14 +7,14 @@ class ToDoItem extends StatelessWidget {
   final Function(ToDo) onToDoChanged;
   final Function(String) onDeleteItem; // Updated parameter type
 
-  const ToDoItem({Key? key, required this.todo, required this.onToDoChanged, required this.onDeleteItem}) : super(key: key);
+  const ToDoItem({super.key, required this.todo, required this.onToDoChanged, required this.onDeleteItem});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
-        contentPadding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
         tileColor: Colors.white,
         onTap: () {
           onToDoChanged(todo);
@@ -23,7 +22,7 @@ class ToDoItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        leading: todo.isDone ? Icon(Icons.check_box,color: Colors.green,) : Icon(Icons.check_box_outline_blank),
+        leading: todo.isDone ? const Icon(Icons.check_box,color: Colors.green,) : const Icon(Icons.check_box_outline_blank),
         title: Text(
           todo.todotext!,
           style: TextStyle(
@@ -43,8 +42,8 @@ class ToDoItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               color: Colors.red,
             ),
-            padding: EdgeInsets.all(6),
-            child: Icon(Icons.delete, color: Colors.white),
+            padding: const EdgeInsets.all(6),
+            child: const Icon(Icons.delete, color: Colors.white),
           ),
         ),
       ),
